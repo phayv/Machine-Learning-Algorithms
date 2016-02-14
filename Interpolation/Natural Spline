@@ -1,3 +1,5 @@
+% Natural Spline %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [S,a,b,c,d] = Natural_Spline(X,Y,x)
 %size n
     [xn,xm]=size(X);
@@ -27,7 +29,7 @@ h
 for i = 2:n-1
     alpha(i) = ((3/h(i))*(a(i+1)-a(i))) - ((3/h(i-1))*(a(i)-a(i-1)));
 end
-alpha
+
 
 l = zeros(1,n-1);
 m = zeros(1,n-2);
@@ -46,9 +48,6 @@ end
 l(1,n) = 1;
 z(1,n) = 0;
 c(1,n) = 0;
-l
-m
-z
 
 for j = n-1:-1:1
     c(j) = z(j) - m(j)*c(j+1);
@@ -56,15 +55,11 @@ for j = n-1:-1:1
     d(j) = (c(j+1)-c(j))/(3*h(j));
 end
 
-
-
 %S(x) interpolated values
 for j = 1:n
     if X(j) <=x && x <=X (j+1)
         S = a(j) + b(j)*(x-X(j)) + c(j)*(x-X(j))^2 + d(j)*(x-X(j))^3;
     end
 end
-S
-
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
