@@ -1,0 +1,45 @@
+# Solve Gauss #
+function solveGauss(A,b)
+    
+    n = length(b)
+    M = hcat(A,b)
+    i = 1
+        
+        
+    for i = 1:n-1
+        indnz = find(M[i:end,i])[1]
+         indj = i + indnz
+            
+        if indj != i
+            rowSwap!(M, i ,indj)
+         end
+            
+        for j = i+1:n
+            M[j,:] = M[j,:] - M[j,i]/M[i,i]*M[i,:]
+        end
+    end
+        
+    U = M[1:n,1:n]
+    b1 = M[1:n, n+1]
+    
+    m=length(U[1,1:end])
+    l = length(U[:,:])
+    
+    if n != m
+        error("This matrix isn't square")
+    end
+    if n != size(b1)[1]
+        error("Matrix size doesn't match with vector size")
+    end
+    
+    x = zeros(b1)
+    n = length(b1)
+    for j = n:-1:1
+        x[j] = (b1[j] - (U[j,j+1:n]*x[j+1:n])[1])/U[j,j]
+    end
+    return x
+    
+    x = M/b
+   
+    return x
+end
