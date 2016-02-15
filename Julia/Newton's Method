@@ -1,3 +1,4 @@
+# Newton's Method #
 function newtonMethod(f,dfdx, p0, ϵ, Nmax; history=false)
     
     history && (pHist = [p0][:])
