@@ -1,4 +1,4 @@
-# Solve Gauss #
+# Solve Gauss With ROWSWAP #
 function solveGauss(A,b)
     
     n = length(b)
