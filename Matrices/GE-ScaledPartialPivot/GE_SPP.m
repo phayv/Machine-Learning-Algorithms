@@ -15,7 +15,7 @@ function x = GE_SPP(A,b)
         temp = 0;
         % Checking the row to switch by scaled partial
         for i = k:n
-            val = M(i,k)/(max(abs(M(i,end-1))));
+            val = M(i,k)/(max(abs(M(i,i:end-1))));
             if val > temp
                 ind = i;
                 temp = val;
