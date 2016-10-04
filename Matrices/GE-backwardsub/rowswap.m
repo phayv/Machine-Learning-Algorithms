@@ -2,10 +2,10 @@
 function A = rowswap(A,i,j)
 %--------------------------------------------------
     if i > size(A,1)
-        error('i is larger than the matrix size!');
+        error('i is larger than the number of matrix rows!');
     end
     if j > size(A,1)
-        error('j is larger than the matrix size!');
+        error('j is larger than the number of matrix rows!');
     end
 %--------------------------------------------------
     % Perform rowswap
