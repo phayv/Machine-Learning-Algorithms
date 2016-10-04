@@ -1,6 +1,4 @@
-% There is a linalg package that swaps rows
 function A = rowswap(A,i,j)
-    n = size(A);
 %--------------------------------------------------
     if i > n(1)
         error('i is larger than the matrix size!');
