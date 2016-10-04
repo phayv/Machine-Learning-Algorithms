@@ -27,13 +27,13 @@ function [Id,x] = GE_backward_elim(A,b)
         for j = i+1:n
             M(j,:) = M(j,:) - M(j,i)/M(i,i)*M(i,:);
         end
-        
-        % No unique solutions
-        if M(n,n)==0 || isnan(M(n,n))
-            error('no unique solution');
-        end
+       
     end
-
+    % No unique solutions
+    if M(n,n)==0 || isnan(M(n,n))
+        error('no unique solution');
+    end
+    
     [Id,x] = backward_elim(M);
     
 end
