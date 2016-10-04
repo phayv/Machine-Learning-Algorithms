@@ -13,9 +13,10 @@ function x = GE_SPP(A,b)
     
     for k = 1:n
         temp = 0;
+        ind = k;
         % Checking the row to switch by scaled partial
         for i = k:n
-            val = M(i,k)/(max(abs(M(i,i:end-1))));
+            val = M(i,k)/(max(abs(M(i,k:end-1))));
             if val > temp
                 ind = i;
                 temp = val;
@@ -23,14 +24,19 @@ function x = GE_SPP(A,b)
         end
         
         % swap according to scaled partial criterion
-        if ind ~= k
+        if k ~= ind
             M = rowswap(M,k,ind);
-        end
+        end     
     
         %Gauss Eliminate
         for j = k+1:n
             M(j,:) = M(j,:) - M(j,k)/M(k,k)*M(k,:);
-        end    
+        end   
+    end
+    
+    % No unique solutions
+    if M(n,n)==0 || isnan(M(n,n))
+        error('no unique solution');
     end
     
     x = backward_sub(M(1:n,1:n),M(1:n,n+1));
