@@ -14,11 +14,6 @@ function x = GE_max_col_pivot(A,b)
     % Augmented Matrix
     M = [A b];
     
-%     NROW = zeros(n,1);
-%     for i = 1:n
-%         NROW(i) = i;
-%     end
-
     for i = 1:n-1
         % find the maximum of the column
         [temp,indj] = max(abs(M(i:n,i)));
