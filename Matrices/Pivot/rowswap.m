@@ -1,12 +1,11 @@
 % There is a linalg package that swaps rows
 function A = rowswap(A,i,j)
-    n = size(A);
 %--------------------------------------------------
-    if i > n(1)
-        error('i is larger than the matrix size!');
+    if i > size(A,1)
+        error('i is larger than the number of matrix rows!');
     end
-    if j > n(1)
-        error('j is larger than the matrix size!');
+    if j > size(A,1)
+        error('j is larger than the number of matrix rows!');
     end
 %--------------------------------------------------
     % Perform rowswap
