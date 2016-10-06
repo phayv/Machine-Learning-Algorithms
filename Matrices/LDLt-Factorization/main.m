@@ -1,3 +1,5 @@
+clear all 
+
 %works only for positive definite matrices (which are symmetric)
 A = generate_SPD_matrix(5);
 b = rand(5,1);
@@ -11,3 +13,4 @@ b = rand(5,1);
 
 y = forward_substitution_lower(L,b);
 x = forward_substitution_upper(D*Lt,y)
+ 
