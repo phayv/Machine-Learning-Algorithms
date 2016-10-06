@@ -1,3 +1,4 @@
 # LDLt Factorization
-Operation Counts: ~(2n^2)
+Operation Count: ~(n^3)/6  
+
 NOTE: requires a positive definite matrix, meaning it also has symmetry.
